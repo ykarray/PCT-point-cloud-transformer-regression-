@@ -109,7 +109,7 @@ class PCT(nn.Module):
         return x, x_max, x_mean
 
 
-class Classification(nn.Module):
+class Regression(nn.Module):
     def __init__(self, num_categories=1):
         super().__init__()
 
@@ -215,7 +215,7 @@ class NaivePCTCls(nn.Module):
         super().__init__()
 
         self.encoder = NaivePCT()
-        self.cls = Classification(num_categories)
+        self.cls = Regression(num_categories)
     
     def forward(self, x):
         _, x, _ = self.encoder(x)
@@ -228,7 +228,7 @@ class SPCTCls(nn.Module):
         super().__init__()
 
         self.encoder = SPCT()
-        self.cls = Classification(num_categories)
+        self.cls = Regression(num_categories)
     
     def forward(self, x):
         _, x, _ = self.encoder(x)
@@ -241,7 +241,7 @@ class PCTCls(nn.Module):
         super().__init__()
 
         self.encoder = PCT()
-        self.cls = Classification(num_categories)
+        self.cls = Regression(num_categories)
     
     def forward(self, x):
         _, x, _ = self.encoder(x)
