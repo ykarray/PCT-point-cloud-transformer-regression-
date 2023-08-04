@@ -1,1 +1,0 @@
-data/modelnet40_ply_hdf5_2048/ply_data_train4.h5
